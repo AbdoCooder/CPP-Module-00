@@ -1,8 +1,8 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex02
-SRC = $(NAME).cpp
+NAME = Account
+SRC = $(NAME).cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
