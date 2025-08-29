@@ -6,7 +6,7 @@
 /*   By: abenajib <abenajib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:41:59 by abenajib          #+#    #+#             */
-/*   Updated: 2025/08/23 16:40:04 by abenajib         ###   ########.fr       */
+/*   Updated: 2025/08/29 20:38:03 by abenajib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,16 @@ void PhoneBook::searchContact()
 		return ;
 	}
 
+	std::cout << BOLD << UNDERLINE << "\n     index|first name| last name|  nickname|" << RESET << std::endl;
+	for (size_t i = 0; i < 8; i++)
+	{
+		if (i < index)
+		{
+			std::cout << std::setw(10) << i << '|';
+			this->contacts[i].displayContactInfoFormat();
+		}
+	}
+
 	int idx = getUserIndex();
 	if (idx == -1)
 		return ;
@@ -118,9 +128,7 @@ void PhoneBook::searchContact()
 		return ;
 	}
 
-	std::cout << BOLD << UNDERLINE << "\n     index|first name| last name|  nickname|" << RESET << std::endl;
-	std::cout << std::setw(10) << idx << '|';
-	this->contacts[idx].displayContactInfo();
+	this->contacts[idx].displayContactInfo(idx);
 	std::cout << std::endl;
 	return ;
 }
