@@ -66,7 +66,6 @@ int		main( void ) {
 	return 0;
 }
 
-
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
 // -*- indent-tabs-mode:t;                                                   -*-

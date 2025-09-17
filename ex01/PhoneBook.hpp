@@ -1,31 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abenajib <abenajib@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 17:41:56 by abenajib          #+#    #+#             */
-/*   Updated: 2025/08/21 17:29:54 by abenajib         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright 2025 Abdelkader Benajiba
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef EX01_PHONEBOOK_HPP_
+#define EX01_PHONEBOOK_HPP_
 
-# include "Contact.hpp"
+#include "Contact.hpp"
 
-class PhoneBook
-{
-  public:
-	PhoneBook();
-	size_t getIndex();
-	bool addContact();
-	void searchContact();
+class PhoneBook {
+ public:
+  PhoneBook();
+  size_t getIndex();
+  bool addContact();
+  void searchContact();
 
-  private:
-	Contact contacts[8];
-	std::size_t	index;
+ private:
+  Contact     contacts[8];
+  std::size_t index;
 };
 
-#endif // PHONEBOOK_HPP
+#endif  // EX01_PHONEBOOK_HPP_

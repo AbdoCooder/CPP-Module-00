@@ -1,5 +1,7 @@
-#ifndef COLORS_HPP
-#define COLORS_HPP
+// Copyright 2025 Abdelkader Benajiba
+
+#ifndef EX01_COLORS_HPP_
+#define EX01_COLORS_HPP_
 
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
@@ -25,4 +27,4 @@
 #define BCYAN "\033[96m"
 #define BWHITE "\033[97m"
 
-#endif // COLORS_HPP
+#endif  // EX01_COLORS_HPP_
