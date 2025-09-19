@@ -1,0 +1,22 @@
+CompileFlags:
+  Add: [-std=c++98, -Wall, -Wextra, -Werror]
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy: {}
+
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  Designators: true
+
+Hover:
+  ShowAKA: true
+
+Completion:
+  AllScopes: true
+
+Index:
+  Background: Build
+  StandardLibrary: true
