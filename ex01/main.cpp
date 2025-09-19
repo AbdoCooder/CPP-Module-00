@@ -4,7 +4,7 @@
 #include "PhoneBook.hpp"
 #include "Colors.hpp"
 
-int main(void) {
+int main() {
   PhoneBook   book;
   std::string cmd;
 
@@ -17,16 +17,16 @@ int main(void) {
       std::cout << BOLD << RED << "EOF" << RESET << std::endl;
       break;
     }
-    if (cmd.compare("ADD") == 0) {
+    if (cmd == "ADD") {
       if (book.addContact()) {
         std::cout << BOLD << GREEN
                   << "==== Contact added successfully at index "
-                  << (book.getIndex() - 1) % 8 << " ===="
+                  << (book.getIndex() - 1) % MAX << " ===="
                   << RESET << std::endl;
       }
-    } else if (cmd.compare("SEARCH") == 0) {
+    } else if (cmd == "SEARCH") {
       book.searchContact();
     }
-  } while (cmd.compare("EXIT") != 0);
+  } while (cmd != "EXIT");
   return 0;
 }

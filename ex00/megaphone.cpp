@@ -1,22 +1,25 @@
 // Copyright 2025 Abdelkader Benajiba
 
 #include <iostream>
+#include <string>
 
 std::string strToUpper(std::string str) {
-  int i;
+  int idx = -1;
 
-  i = -1;
-  while (str[++i])
-    str[i] = std::toupper(str[i]);
+  while (str[++idx] != 0) {
+    str[idx] = static_cast<char>(std::toupper(str[idx]));
+  }
   return (str);
 }
 
-int main(int ac, char **av) {
-  if (ac == 1) {
+int main(int argc, char *argv[]) {
+  if (argc == 1) {
     std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
   } else {
-    for (int i = 1; i < ac; i++)
-      std::cout << strToUpper(av[i]);
+    std::string av_str;
+    for (int idx = 1; idx < argc; idx++) {
+      std::cout << strToUpper(argv[idx]);
+    }
     std::cout << std::endl;
   }
   return (0);

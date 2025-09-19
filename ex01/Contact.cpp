@@ -4,7 +4,6 @@
 #include <string>
 #include <iomanip>
 #include "Contact.hpp"
-#include "Colors.hpp"
 
 void Contact::fillContact(std::string firstName, std::string lastName,
   std::string nickname, std::string phoneNumber, std::string darkestSecret) {
