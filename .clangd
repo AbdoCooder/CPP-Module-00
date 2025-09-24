@@ -1,9 +1,12 @@
 CompileFlags:
   Add: [-std=c++98, -Wall, -Wextra, -Werror]
+  Remove: [-W*]
 
 Diagnostics:
   UnusedIncludes: Strict
-  ClangTidy: {}
+  ClangTidy:
+    Add: ["bugprone-*", "readability-*", "performance-*", "misc-*", "cppcoreguidelines-*"]
+    Remove: ["modernize-*"]
 
 InlayHints:
   Enabled: true

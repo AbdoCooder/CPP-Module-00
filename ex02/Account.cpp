@@ -35,10 +35,11 @@ Account::~Account(void) {
 void Account::_displayTimestamp(void) {
   std::time_t now = std::time(0);
   char buf[32];
-  if (std::strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", std::localtime(&now)))
+  if (std::strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", std::localtime(&now))) {
     std::cout << buf << " ";
-  else
+  } else {
     std::cout << "[00000000_000000] ";
+  }
 }
 
 int Account::getNbAccounts(void) { return _nbAccounts; }
