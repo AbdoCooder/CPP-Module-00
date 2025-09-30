@@ -15,7 +15,7 @@ class PhoneBook {
   void searchContact();
 
  private:
-  Contact     contacts[MAX];
+  Contact contacts[MAX];
   std::size_t index;
 };
 

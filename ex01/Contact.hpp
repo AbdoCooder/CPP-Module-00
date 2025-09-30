@@ -8,8 +8,8 @@
 class Contact {
  public:
   void fillContact(std::string firstName, std::string lastName,
-    std::string nickname, std::string phoneNumber,
-    std::string darkestSecret);
+                   std::string nickname, std::string phoneNumber,
+                   std::string darkestSecret);
   void displayContactInfoFormat();
   void displayContactInfo(int idx);
 

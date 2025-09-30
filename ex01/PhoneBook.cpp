@@ -1,10 +1,10 @@
 // Copyright 2025 Abdelkader Benajiba
 
-#include <iomanip>
-#include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 #include "Colors.hpp"
+
+#include <iomanip>
+#include <iostream>
 
 PhoneBook::PhoneBook() : index(0) {}
 

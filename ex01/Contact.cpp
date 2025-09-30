@@ -1,12 +1,14 @@
 // Copyright 2025 Abdelkader Benajiba
 
-#include <iostream>
-#include <string>
 #include <iomanip>
+#include <iostream>
+
 #include "Contact.hpp"
 
+
 void Contact::fillContact(std::string firstName, std::string lastName,
-  std::string nickname, std::string phoneNumber, std::string darkestSecret) {
+                          std::string nickname, std::string phoneNumber,
+                          std::string darkestSecret) {
   this->firstName = firstName;
   this->lastName = lastName;
   this->nickname = nickname;
@@ -15,8 +17,7 @@ void Contact::fillContact(std::string firstName, std::string lastName,
 }
 
 static std::string formatString_10Width(const std::string str) {
-  if (str.length() > 10)
-    return (str.substr(0, 9) + '.');
+  if (str.length() > 10) return (str.substr(0, 9) + '.');
   return (str);
 }
 

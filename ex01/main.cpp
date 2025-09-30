@@ -1,11 +1,12 @@
 // Copyright 2025 Abdelkader Benajiba
 
 #include <iostream>
-#include "PhoneBook.hpp"
+
 #include "Colors.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
-  PhoneBook   book;
+  PhoneBook book;
   std::string cmd;
 
   do {
@@ -21,8 +22,8 @@ int main() {
       if (book.addContact()) {
         std::cout << BOLD << GREEN
                   << "==== Contact added successfully at index "
-                  << (book.getIndex() - 1) % MAX << " ===="
-                  << RESET << std::endl;
+                  << (book.getIndex() - 1) % MAX << " ====" << RESET
+                  << std::endl;
       }
     } else if (cmd == "SEARCH") {
       book.searchContact();
