@@ -3,8 +3,10 @@
 #include "PhoneBook.hpp"
 #include "Colors.hpp"
 
-#include <iomanip>
-#include <iostream>
+#include <iomanip>  // for std::setw
+#include <iostream> // for std::cout, std::endl
+#include <stdlib.h> // for atoi
+#include <string>   // for std::string, std::getline
 
 PhoneBook::PhoneBook() : index(0) {}
 
@@ -17,7 +19,13 @@ bool PhoneBook::addContact() {
   std::getline(std::cin, firstName);
   if (firstName.empty()) {
     std::cin.clear();
-    std::cout << "    ==== Error: first name is required!" << std::endl;
+    std::cout << RED << "    ==== Error: first name is required!" << RESET << std::endl;
+    return (false);
+  }
+  if (firstName.find('\t') != std::string::npos) {
+    std::cin.clear();
+    std::cout << RED << "    ==== Error: first name cannot contain tab characters!"
+              << RESET << std::endl;
     return (false);
   }
 
@@ -27,7 +35,13 @@ bool PhoneBook::addContact() {
   std::getline(std::cin, lastName);
   if (lastName.empty()) {
     std::cin.clear();
-    std::cout << "    ==== Error: last name is required!" << std::endl;
+    std::cout << RED << "    ==== Error: last name is required!" << RESET << std::endl;
+    return (false);
+  }
+  if (lastName.find('\t') != std::string::npos) {
+    std::cin.clear();
+    std::cout << RED << "    ==== Error: last name cannot contain tab characters!"
+              << RESET << std::endl;
     return (false);
   }
 
@@ -37,7 +51,13 @@ bool PhoneBook::addContact() {
   std::getline(std::cin, nickname);
   if (nickname.empty()) {
     std::cin.clear();
-    std::cout << "    ==== Error: nickname is required!" << std::endl;
+    std::cout << RED << "    ==== Error: nickname is required!" << RESET << std::endl;
+    return (false);
+  }
+  if (nickname.find('\t') != std::string::npos) {
+    std::cin.clear();
+    std::cout << RED << "    ==== Error: nickname cannot contain tab characters!"
+              << RESET << std::endl;
     return (false);
   }
 
@@ -47,7 +67,13 @@ bool PhoneBook::addContact() {
   std::getline(std::cin, phoneNumber);
   if (phoneNumber.empty()) {
     std::cin.clear();
-    std::cout << "    ==== Error: phone number is required!" << std::endl;
+    std::cout << RED << "    ==== Error: phone number is required!" << RESET << std::endl;
+    return (false);
+  }
+  if (phoneNumber.find('\t') != std::string::npos) {
+    std::cin.clear();
+    std::cout << RED << "    ==== Error: phone number cannot contain tab characters!"
+              << RESET << std::endl;
     return (false);
   }
 
@@ -57,7 +83,14 @@ bool PhoneBook::addContact() {
   std::getline(std::cin, darkestSecret);
   if (darkestSecret.empty()) {
     std::cin.clear();
-    std::cout << "    ==== Error: darkest secret is required!" << std::endl;
+    std::cout << RED << "    ==== Error: darkest secret is required!"
+              << RESET << std::endl;
+    return (false);
+  }
+  if (darkestSecret.find('\t') != std::string::npos) {
+    std::cin.clear();
+    std::cout << RED << "    ==== Error: darkest secret cannot contain tab characters!"
+              << RESET << std::endl;
     return (false);
   }
 
@@ -70,23 +103,15 @@ bool PhoneBook::addContact() {
 
 static int getUserIndex() {
   std::string userIndex;
-  std::cout << MAGENTA
-            << "    ==== Please select an index to search for: " << RESET;
+  std::cout << MAGENTA << "    ==== Please select an index to search for: " << RESET;
   std::getline(std::cin, userIndex);
   if (userIndex.empty()) {
     std::cout << "    ==== Choosing an index is required !" << std::endl;
     return (-1);
   }
-  if (userIndex.length() != 1 ||
-      std::isdigit(static_cast<unsigned char>(userIndex[0])) != 1) {
-    std::cout << BOLD << RED
-              << "    ==== Invalid index! Please type a single digit (0-7)."
-              << RESET << std::endl;
-    return (-1);
-  }
-  int idx = userIndex[0] - '0';
-  if (idx < 0 || idx > MAX - 1) {
-    std::cout << "    ==== Invalid index! Please type a single digit (0-7)."
+  int idx = std::atoi(userIndex.c_str());
+  if (userIndex.find_last_not_of("0123456789") != std::string::npos || idx < 0 || idx > MAX - 1) {
+    std::cout << "    ==== Invalid index! Please type a single digit (1-7)."
               << std::endl;
     return (-1);
   }
@@ -94,7 +119,7 @@ static int getUserIndex() {
 }
 
 void PhoneBook::searchContact() {
-  if (index == 0) {
+  if (index <= 0) {
     std::cout << YELLOW << "    ==== The PhoneBook is Empty! Please " << GREEN
               << "ADD" << YELLOW << " Contacts :)" << RESET << std::endl;
     return;
